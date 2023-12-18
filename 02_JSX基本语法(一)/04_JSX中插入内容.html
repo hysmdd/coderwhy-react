@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+
+          this.state = {
+            counter: 559,
+            message: "终会与你同行",
+            names: ["qinhao", "1999", "0223", "5920"],
+            aaa: null,
+            bbb: undefined,
+            ccc: true,
+            userInfo: {
+              name: "Mark",
+              age: 24,
+            },
+            firstName: "Jielun",
+            lastName: "Zhou",
+            age: 26,
+            songs: [
+              "爱一点",
+              "第一千零一次告白",
+              "其实都没有",
+              "我是如此相信",
+              "喜欢你",
+            ],
+          };
+        }
+
+        render() {
+          const {
+            counter,
+            message,
+            names,
+            aaa,
+            bbb,
+            ccc,
+            userInfo,
+            firstName,
+            lastName,
+            age,
+            songs,
+          } = this.state;
+
+          const fullName = lastName + " " + firstName;
+          const ageText = age >= 18 ? "成年人" : "未成年人";
+
+          const liEls = songs.map((song) => <li key={song}>{song}</li>);
+
+          return (
+            <div>
+              {/* 1. Number/String/Array直接显示出来 */}
+              <h2>{counter}</h2>
+              <h2>{message}</h2>
+              <h2>{names}</h2>
+
+              {/*  2. undefined/null/Boolean */}
+              <h2>{aaa}</h2>
+              <h2>{bbb + ""}</h2>
+              <h2>{ccc.toString()}</h2>
+
+              {/* 3. Object类型不能作为子元素进行显示 */}
+              <h2>{userInfo.name}</h2>
+              <h2>{userInfo.age}</h2>
+
+              {/* 4. 可以插入对应的表达式 */}
+              <h2>{10 + 20}</h2>
+              <h2>{lastName + " " + firstName}</h2>
+              <h2>{fullName}</h2>
+
+              {/* 5. 可以插入三元运算符 */}
+              <h2>{ageText}</h2>
+              <h2>{age >= 18 ? "成年人" : "未成年人"}</h2>
+
+              {/* 6. 可以调用方法获取结果 */}
+              <ul>{liEls}</ul>
+              <ul>
+                {songs.map((song) => (
+                  <li key={song}>{song}</li>
+                ))}
+              </ul>
+              <ul>{this.getSongEls()}</ul>
+            </div>
+          );
+        }
+
+        getSongEls() {
+          const liEls = this.state.songs.map((song) => (
+            <li key={song}>{song}</li>
+          ));
+          return liEls;
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
