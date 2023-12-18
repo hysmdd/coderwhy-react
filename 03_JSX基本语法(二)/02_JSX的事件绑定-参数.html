@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+
+          this.state = {
+            message: "终会与你同行",
+          };
+        }
+
+        btn1Click(event, name, age) {
+          console.log("btn1Click", event, this);
+          console.log("name, age ", name, age);
+        }
+
+        render() {
+          const { message } = this.state;
+          return (
+            <div>
+              <h2>{message}</h2>
+              <button onClick={this.btn1Click.bind(this)}>按钮1</button>
+              <button onClick={(event) => this.btn1Click(event)}>按钮2</button>
+              {/* 额外参数 */}
+              <button onClick={this.btn1Click.bind(this, "qinhao", 24)}>
+                按钮3（不推荐）
+              </button>
+              <button onClick={(event) => this.btn1Click(event, "qinhao", 24)}>
+                按钮4
+              </button>
+            </div>
+          );
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
