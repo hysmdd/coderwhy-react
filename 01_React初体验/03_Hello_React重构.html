@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      //   const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      //   let message = "Hello World";
+
+      //   function btnClick() {
+      //     message = "Hello React";
+      //     rootRender();
+      //   }
+
+      //   rootRender();
+
+      //   function rootRender() {
+      //     root.render(
+      //       <div>
+      //         <h2>{message}</h2>
+      //         <button onClick={btnClick}>修改文字</button>
+      //       </div>
+      //     );
+      //   }
+
+      // 使用组件进行代码重构
+      // 类组件和函数式组件
+      class App extends React.Component {
+        // 组件数据
+        constructor() {
+          super();
+
+          this.state = {
+            message: "Hello World",
+          };
+
+          this.btnClick = this.btnClick.bind(this);
+        }
+
+        // 组件方法（示例方法）
+        btnClick() {
+          this.setState({
+            message: "Hello React",
+          });
+        }
+
+        // 组件渲染内容  render方法
+        render() {
+          return (
+            <div>
+              <h2>{this.state.message}</h2>
+              <button onClick={this.btnClick}>修改文本</button>
+            </div>
+          );
+        }
+      }
+
+      // 将组件渲染到页面上
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
