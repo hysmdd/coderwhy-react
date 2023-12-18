@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <div id="app"></div>
+
+    <!-- 添加依赖 -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin
+    ></script>
+
+    <!-- 编写React代码（JSX语法） -->
+    <script type="text/babel">
+      // React18之前：ReactDOM.render
+      //   ReactDOM.render(<h2>Hello World</h2>, document.querySelector("#root"));
+
+      // React18之后
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<h2>终会与你同行</h2>);
+
+      const app = ReactDOM.createRoot(document.querySelector("#app"));
+      app.render(<h2>你从未离去</h2>);
+    </script>
+  </body>
+</html>
