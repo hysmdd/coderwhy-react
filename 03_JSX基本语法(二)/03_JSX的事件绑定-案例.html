@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            songs: [
+              "戒烟",
+              "不将就",
+              "体面",
+              "喜欢你",
+              "泡沫",
+              "修炼爱情",
+              "其实都没有",
+              "天后",
+              "无数",
+              "绅士",
+            ],
+            currentIndex: 0,
+          };
+        }
+
+        itemClick(index) {
+          this.setState({
+            currentIndex: index,
+          });
+        }
+
+        render() {
+          const { songs, currentIndex } = this.state;
+          return (
+            <ul>
+              {songs.map((song, index) => {
+                return (
+                  <li
+                    className={currentIndex === index ? "active" : ""}
+                    key={song}
+                    onClick={() => this.itemClick(index)}
+                  >
+                    {song}
+                  </li>
+                );
+              })}
+            </ul>
+          );
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
