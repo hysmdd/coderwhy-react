@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            songs: ["爱一点", "我是如此相信", "是你", "其实都没有", "修炼爱情"],
+          };
+        }
+
+        render() {
+          // 1.对songs进行for循环
+          //   const liEls = [];
+          //   for (var song of this.state.songs) {
+          //     const liEl = <li>{song}</li>;
+          //     liEls.push(liEl);
+          //   }
+
+          // 2. songs数组 => liEls数组
+          //   const liEls = this.state.songs.map((song) => <li>{song}</li>);
+
+          return (
+            <div>
+              <h2>歌单</h2>
+              <ul>
+                {this.state.songs.map((song) => (
+                  <li>{song}</li>
+                ))}
+              </ul>
+            </div>
+          );
+        }
+      }
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
