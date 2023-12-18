@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+
+          this.state = {
+            title: "终会与你同行",
+            imageUrl:
+              "https://q2.qlogo.cn/headimg_dl?dst_uin=1801882100@qq.com,1801882100,&spec=640",
+            href: "https://store.imqinhao.cn",
+            isActive: true,
+            objStyle: {
+              color: "#ff6700",
+              fontSize: "40px",
+            },
+          };
+        }
+
+        render() {
+          const { title, imageUrl, href, isActive, objStyle } = this.state;
+
+          // 需求：isActive: true => active
+          // 方式1：字符串的拼接
+          const className = `abc cba ${isActive ? "active" : ""}`;
+          // 方式2：将所有的class放到数组中
+          const classList = ["abc", "cba"];
+          if (isActive) classList.push("active");
+
+          return (
+            <div>
+              {/* 1. 基本属性绑定 */}
+              <h2 title={title}>我是h2标题</h2>
+              <img src={imageUrl}></img>
+              <a href={href}>浩哥小屋</a>
+
+              {/* 2. 绑定class属性：最好使用className */}
+              <h2 className={`aaa bbb ${isActive ? "active" : ""}`}>喜欢你</h2>
+              <h2 className={className}>喜欢你</h2>
+              <h2 className={classList.join(" ")}>喜欢你</h2>
+
+              {/* 3. 绑定style属性 */}
+              <h2 style={{ color: "red", fontSize: "40px" }}>
+                我知道你在听 我怎么讲
+              </h2>
+              <h2 style={objStyle}>我想说我会爱你多一点点</h2>
+            </div>
+          );
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
