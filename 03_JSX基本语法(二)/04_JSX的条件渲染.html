@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            isReady: true,
+            friend: {
+              name: "hmy",
+              age: 26,
+            },
+          };
+        }
+
+        render() {
+          const { isReady, friend } = this.state;
+
+          let showElement = null;
+          if (isReady) {
+            showElement = <h2>比赛即将开始</h2>;
+          } else {
+            showElement = <h1>请抓紧做好准备</h1>;
+          }
+
+          return (
+            <div>
+              {/* 方式1： 根据条件给变量赋值不同的内容 */}
+              <div>{showElement}</div>
+              {/* 方式2： 三元运算符 */}
+              <h2>{isReady ? "倒计时开始" : "请及时入场"}</h2>
+              {/* 方式3：&&逻辑与运算 */}
+              <div>{friend && <div>{friend.name + " " + friend.age}</div>}</div>
+            </div>
+          );
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
