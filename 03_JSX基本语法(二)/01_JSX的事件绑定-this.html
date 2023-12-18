@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      /**
+       * this的四种绑定规则
+       *    1：默认绑定  独立执行   foo()
+       *    2：隐式绑定   被一个对象调用   obj.foo()  => obj
+       *    3：显式绑定   call/apply/bind   foo.call("aaa") => String("aaa")
+       *    4： new绑定   new Foo() => 创建一个新对象，并且赋值给this
+       */
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      class App extends React.Component {
+        constructor() {
+          super();
+
+          this.state = {
+            message: "终会与你同行",
+            counter: 559,
+          };
+
+          this.increase = this.increase.bind(this);
+        }
+
+        increase() {
+          this.setState({
+            counter: this.state.counter + 1,
+          });
+        }
+
+        decrease = () => {
+          this.setState({
+            counter: this.state.counter - 1,
+          });
+        };
+
+        increase520() {
+          this.setState({
+            counter: this.state.counter + 520,
+          });
+        }
+
+        render() {
+          const { message, counter } = this.state;
+
+          return (
+            <div>
+              <h2>当前计数：{counter}</h2>
+              {/* 1. this绑定方式一：bind绑定 */}
+              <button onClick={this.increase}>+1</button>
+              {/* 2. this绑定方式二：ES6 class fields */}
+              <button onClick={this.decrease}>-1</button>
+              {/* 3. this绑定方式三：直接传入一个箭头函数 */}
+              <button
+                onClick={() =>
+                  this.setState({ counter: this.state.counter + 520 })
+                }
+              >
+                +520
+              </button>
+              <button onClick={() => this.increase520()}>+520</button>
+            </div>
+          );
+        }
+      }
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>
