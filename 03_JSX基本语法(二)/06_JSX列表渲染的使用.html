@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .info {
+        height: 120px;
+        width: 18%;
+        padding: 20px;
+        font-size: 18px;
+        line-height: 2.25em;
+        background-color: #e3e4e5;
+        color: #000;
+      }
+
+      .score {
+        color: red;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            students: [
+              { id: 10001, name: "马化腾", score: 189 },
+              { id: 10002, name: "王健林", score: 86 },
+              { id: 10003, name: "马云", score: 159 },
+              { id: 10004, name: "雷军", score: 195 },
+            ],
+          };
+        }
+
+        render() {
+          const { students } = this.state;
+
+          // 分数大于100的学生进行展示
+          const filterStudents = students.filter(
+            (student) => student.score > 100
+          );
+          // 分数大于100，只展示两个人的信息
+          // slice(start, end)  [start, end)
+          const sliceStudents = filterStudents.slice(0, 2);
+
+          return (
+            <div>
+              <h2>学生列表</h2>
+              <div className="card">
+                {students.map((student) => {
+                  return (
+                    <div className="info" key={student.id}>
+                      <div>ID：{student.id}</div>
+                      <div>姓名：{student.name}</div>
+                      <div>
+                        分数：<span className="score">{student.score}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
