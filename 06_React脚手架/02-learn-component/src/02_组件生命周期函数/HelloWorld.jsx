@@ -34,12 +34,22 @@ class HelloWorld extends React.Component {
         console.log("HelloWorld componentDidMount");
     }
     // 4. 组件的DOM更新完成；DOM发生更新
-    componentDidUpdate() {
-        console.log("HelloWorld componentDidUpdate");
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("HelloWorld componentDidUpdate", prevProps, prevState, snapshot);
     }
-
+    // 5. 组件从DOM中卸载：从DOM移除掉
     componentWillUnmount() {
         console.log("HelloWorld componentWillUnmount")
+    }
+    // 不常用生命周期
+    shouldComponentUpdate() {
+        return true;
+    }
+    getSnapshotBeforeUpdate() {
+        console.log("HelloWorld getSnapshotBeforeUpdate")
+        return {
+            scrollPosition: 1314
+        }
     }
 }
 
