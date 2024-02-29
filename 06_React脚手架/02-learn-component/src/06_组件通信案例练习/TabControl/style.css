@@ -1,0 +1,17 @@
+.tabControl {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    align-items: center;
+    text-align: center;
+}
+.tabControl .item {
+    flex: 1;
+}
+.tabControl .item.active {
+    color: red;
+}
+.tabControl .item.active .text {
+    padding: 3px;
+    border-bottom: 3px solid red;
+}
