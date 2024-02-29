@@ -24,11 +24,13 @@ export class MainBanner extends Component {
   }
 }
 
+// MainBanner传入的props类型进行验证
 MainBanner.propTypes = {
   banners: PropTypes.array,
   title: PropTypes.string,
 }
 
+// MainBanner传入的props默认值
 MainBanner.defaultProps = {
   banners: [],
   title: '默认标题'
