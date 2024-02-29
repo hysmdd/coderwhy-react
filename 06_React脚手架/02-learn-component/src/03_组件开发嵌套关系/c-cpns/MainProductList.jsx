@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 
 export class MainProductList extends Component {
+  
   render() {
+    const { productList } = this.props
+
     return (
       <div>
-        <h2>这是商品列表</h2>
+        <h2>购物车数据</h2>
         <ul>
-            <li>商品列表1</li>
-            <li>商品列表2</li>
-            <li>商品列表3</li>
-            <li>商品列表4</li>
-            <li>商品列表5</li>
+            {
+              productList.map(item => {
+                return (<li key={item}><h3>{item}</h3></li>)
+              })
+            }
         </ul>
       </div>
     )
