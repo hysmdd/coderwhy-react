@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from './c-cpns/Header'
 import Main from './c-cpns/Main'
 import Footer from './c-cpns/Footer'
+import './style.css'
 
 export class App extends Component {
   render() {
