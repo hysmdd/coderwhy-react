@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Home from './Home'
 import ThemeContext from './contexts/theme-context'
+import UserContext from './contexts/user-context'
+import Profile from './Profile'
 
 export class App extends Component {
   constructor() {
@@ -22,9 +24,12 @@ export class App extends Component {
         {/* <Home name='coderqin' age={18}></Home>
         <Home name={info.name} age={info.age}></Home>
         <Home {...info} /> */}
-        <ThemeContext.Provider value={{gender: 'female', age: 18}}>
-            <Home {...info} />
-        </ThemeContext.Provider>
+        <UserContext.Provider value={{username: 'admin', password: '123456'}}>
+            <ThemeContext.Provider value={{color: 'red', fontSize: 18}}>
+                <Home {...info} />
+            </ThemeContext.Provider>
+        </UserContext.Provider>
+        <Profile></Profile>
       </div>
     )
   }
