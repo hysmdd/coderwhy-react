@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import HomeInfo from './HomeInfo';
 
 export class Home extends Component {
   render() {
@@ -6,6 +7,7 @@ export class Home extends Component {
     return (
       <div>
         <div>Home: {name} - {age}</div>
+        <HomeInfo></HomeInfo>
       </div>
     )
   }
