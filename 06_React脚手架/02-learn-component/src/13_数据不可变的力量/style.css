@@ -1,0 +1,27 @@
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 70%;
+}
+
+th, td {
+    width: 150px;
+    border: 1px solid;
+    line-height: 60px;
+    text-align: center;
+}
+
+button {
+    background-color: #e3e3e3;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.add-btn {
+    position: absolute;
+    right: 13%;
+    bottom: -30%;
+}
