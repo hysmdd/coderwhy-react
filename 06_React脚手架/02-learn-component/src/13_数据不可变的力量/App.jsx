@@ -28,6 +28,14 @@ export class App extends PureComponent {
     });
   }
 
+  increaseScore(index) {
+    const actors = [...this.state.actors];
+    actors[index].score = actors[index].score + 0.5;
+    this.setState({
+      actors: actors,
+    });
+  }
+
   render() {
     const { actors } = this.state;
     return (
@@ -53,7 +61,9 @@ export class App extends PureComponent {
                   <td>{actor.actor}</td>
                   <td>{actor.score}</td>
                   <td>
-                    <button>投票</button>
+                    <button onClick={() => this.increaseScore(index)}>
+                      投票
+                    </button>
                   </td>
                 </tr>
               </tbody>
