@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Home from './Home'
 import Recommend from './Recommend'
+import Profile from './Profile'
 
-export class App extends Component {
+export class App extends PureComponent {
   constructor() {
     super()
 
@@ -12,12 +13,12 @@ export class App extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.message === this.state.message && this.state.counter === nextState.counter) {
-        return false
-    }
-    return true
-  }
+//   shouldComponentUpdate(nextProps, nextState) {
+//     if (nextState.message === this.state.message && this.state.counter === nextState.counter) {
+//         return false
+//     }
+//     return true
+//   }
 
   changeText() {
     this.setState({
@@ -45,6 +46,7 @@ export class App extends Component {
         <button onClick={() => this.increase()}>counter + 1 </button>
         <Home message={message} />
         <Recommend counter={counter} />
+        <Profile message={message} />
       </div>
     )
   }

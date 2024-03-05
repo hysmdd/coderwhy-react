@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-export class Home extends Component {
+export class Home extends PureComponent {
 
     constructor(props) {
         super(props)
@@ -10,12 +10,12 @@ export class Home extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps.message !== this.props.message) {
-            return true
-        }
-        return false
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     if (nextProps.message !== this.props.message) {
+    //         return true
+    //     }
+    //     return false
+    // }
 
   render() {
     console.log("Home render")
