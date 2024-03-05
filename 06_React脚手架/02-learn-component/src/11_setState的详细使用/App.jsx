@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import './style.css'
+import { flushSync } from 'react-dom'
 
-function Hello (props) {
-    console.log(props.message)
-}
+// function Hello (props) {
+//     console.log(props.message)
+// }
 
 export class App extends Component {
   constructor(props) {
@@ -38,12 +39,25 @@ export class App extends Component {
     //     message: '浩瀚星空里，只剩你的背影'
     // })
     // console.log("-------------------------", this.state.message)
-    this.setState({
-        message: '浩瀚星空里，只剩你的背影'
-    }, () => {
-        console.log("+++++++++++++++++++++++++", this.state.message)
+    // this.setState({
+    //     message: '浩瀚星空里，只剩你的背影'
+    // }, () => {
+    //     console.log("+++++++++++++++++++++++++", this.state.message)
+    // })
+    // console.log("-------------------------", this.state.message)
+    setTimeout(() => {
+      // 在React18之前，在settimeout中调用setState是同步操作
+      // 在React18之后，在setTimeout中调用setState是异步操作（批处理）
+      // this.setState({
+      //   message: '浩瀚星空里，只剩你的背影'
+      // })
+      flushSync(() => {
+        this.setState({
+          message: '浩瀚星空里，只剩你的背影'
+        })
+      })
+      console.log(this.state.message)
     })
-    console.log("-------------------------", this.state.message)
   }
   increase() {
     console.log("--------------------")
@@ -81,7 +95,6 @@ export class App extends Component {
         <h2>消息内容：{message}</h2>
         <button onClick={() => this.increase()}>counter + 1</button>
         <h2>当前计数：{counter}</h2>
-        <Hello message={message} />
       </div>
     )
   }
