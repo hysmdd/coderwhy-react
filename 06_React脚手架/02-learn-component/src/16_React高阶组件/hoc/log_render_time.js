@@ -11,7 +11,7 @@ function logRenderTime(OriginComponent) {
       console.log(`${OriginComponent.name}页面花费了${interval}ms后渲染完成`);
     }
     render() {
-      return <OriginComponent {...origin}></OriginComponent>;
+      return <OriginComponent {...this.props}></OriginComponent>;
     }
   };
 }
