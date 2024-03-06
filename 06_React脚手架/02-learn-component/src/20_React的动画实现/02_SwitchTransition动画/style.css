@@ -1,0 +1,41 @@
+
+.container {
+    margin-top: 50px;
+    /* text-align: center; */
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    background: #e3e3e3;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.quit {
+    background-color: #ff6700;
+    color: white;
+}
+
+.login-enter {
+    transform: translateX(300px);
+    /* opacity: 0.2; */
+}
+
+.login-enter-active {
+    transform: translateX(0);
+    /* opacity: 1; */
+    transition: transform 1s ease;
+}
+
+.login-exit {
+    transform: translateX(0);
+    /* opacity: 1; */
+}
+
+.login-exit-active {
+    transform: translateX(-100px);
+    /* opacity: 0; */
+    transition: transform 1s ease;
+}

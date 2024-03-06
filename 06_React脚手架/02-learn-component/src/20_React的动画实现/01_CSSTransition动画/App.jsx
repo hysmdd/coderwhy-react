@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, createRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import "./style.css";
 
@@ -9,6 +9,8 @@ export class App extends PureComponent {
     this.state = {
       isShow: true,
     };
+
+    this.mimeRef = createRef();
   }
   render() {
     const { isShow } = this.state;
@@ -19,6 +21,7 @@ export class App extends PureComponent {
         </button>
         {/* {isShow && <h2>浩瀚星空里，只剩你的背影</h2>} */}
         <CSSTransition
+          nodeRef={this.mimeRef}
           in={isShow}
           classNames="dex"
           timeout={2000}
@@ -31,7 +34,7 @@ export class App extends PureComponent {
           onExiting={(e) => console.log("执行离开动画")}
           onExited={(e) => console.log("结束离开动画")}
         >
-          <h2>浩瀚星空里，只剩你的背影</h2>
+          <h2 ref={this.mimeRef}>浩瀚星空里，只剩你的背影</h2>
         </CSSTransition>
       </div>
     );
