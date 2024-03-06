@@ -20,7 +20,9 @@ import ReactDOM from "react-dom/client";
 // import App from "./19_React的严格模式/App";
 // import App from "./20_React的动画实现/App";
 // import App from "./20_React的动画实现/01_CSSTransition动画/App";
-import App from "./20_React的动画实现/02_SwitchTransition动画/App";
+// import App from "./20_React的动画实现/02_SwitchTransition动画/App";
+import App from "./20_React的动画实现/03_TransitionGroup/App";
+
 import { StrictMode } from "react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

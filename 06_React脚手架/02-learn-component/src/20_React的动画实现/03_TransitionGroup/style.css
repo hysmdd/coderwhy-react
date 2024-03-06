@@ -1,0 +1,25 @@
+.dex-enter {
+    transform: translateX(150px);
+    opacity: 0;
+}
+
+.dex-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 1s ease;
+}
+
+.delete {
+    margin-left: 40px;
+}
+
+.dex-exit {
+    transform: translateX(0);
+    /* opacity: 1; */
+}
+
+.dex-exit-active {
+    transform: translateX(150px);
+    /* opacity: 0; */
+    transition: transform 1s ease;
+}

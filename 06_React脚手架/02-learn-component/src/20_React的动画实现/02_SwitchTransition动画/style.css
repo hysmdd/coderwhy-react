@@ -19,18 +19,18 @@ button {
 }
 
 .login-enter {
-    transform: translateX(300px);
+    transform: translateX(100px);
     /* opacity: 0.2; */
 }
 
 .login-enter-active {
-    transform: translateX(0);
+    transform: translateX(-100px);
     /* opacity: 1; */
     transition: transform 1s ease;
 }
 
 .login-exit {
-    transform: translateX(0);
+    transform: translateX(-100px);
     /* opacity: 1; */
 }
 
