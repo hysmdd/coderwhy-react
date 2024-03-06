@@ -1,0 +1,19 @@
+/* 进入动画 */
+.dex-enter {
+    opacity: 0;
+}
+
+.dex-enter-active {
+    opacity: 1;
+    transition: opacity 2s ease;
+}
+
+/* 离开动画 */
+.dex-exit {
+    opacity: 1;
+}
+
+.dex-exit-active {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
