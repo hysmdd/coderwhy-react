@@ -1,4 +1,13 @@
 /* 进入动画 */
+.dex-appear {
+    transform: translateX(-150px);
+}
+
+.dex-appear-active {
+    transform: translateX(0);
+    transition: transform 2s ease;
+}
+
 .dex-enter {
     opacity: 0;
 }

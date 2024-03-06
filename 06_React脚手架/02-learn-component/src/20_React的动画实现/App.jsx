@@ -7,7 +7,7 @@ export class App extends PureComponent {
     super();
 
     this.state = {
-      isShow: false,
+      isShow: true,
     };
   }
   render() {
@@ -22,7 +22,14 @@ export class App extends PureComponent {
           in={isShow}
           classNames="dex"
           timeout={2000}
+          appear={true}
           unmountOnExit={true}
+          onEnter={(e) => console.log("开始进入动画")}
+          onEntering={(e) => console.log("执行进入动画")}
+          onEntered={(e) => console.log("结束进入动画")}
+          onExit={(e) => console.log("开始离开动画")}
+          onExiting={(e) => console.log("执行离开动画")}
+          onExited={(e) => console.log("结束离开动画")}
         >
           <h2>浩瀚星空里，只剩你的背影</h2>
         </CSSTransition>
