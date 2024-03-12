@@ -1,4 +1,6 @@
 import ReactDOM from "react-dom/client";
+import { ThemeProvider } from "styled-components";
+
 // import App from "./01_内联样式的css/App";
 // import App from "./02_普通css的写法/App";
 // import App from "./03_CSS_Modules/App";
@@ -6,7 +8,11 @@ import ReactDOM from "react-dom/client";
 import App from "./05_CSS_in_js/App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <ThemeProvider theme={{ color: "#ff6700", size: "50px" }}>
+    <App />
+  </ThemeProvider>
+);
 
 // const name = "coderdex";
 // const age = 18;
