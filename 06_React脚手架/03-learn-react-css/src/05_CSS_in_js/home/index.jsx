@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { HomeWrapper } from "./style";
+import { Button1, DangerButton, HomeWrapper, PrimaryButton } from "./style";
 
 export class Home extends PureComponent {
   render() {
@@ -8,6 +8,10 @@ export class Home extends PureComponent {
         <div className="top">
           <div className="banner"></div>
         </div>
+
+        <Button1>普通按钮</Button1>
+        <PrimaryButton>主要按钮</PrimaryButton>
+        <DangerButton>危险按钮</DangerButton>
         <div className="bottom">
           <h2 className="header">演员列表</h2>
           <ul className="actor-list">

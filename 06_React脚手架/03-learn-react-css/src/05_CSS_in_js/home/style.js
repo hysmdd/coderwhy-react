@@ -1,5 +1,27 @@
 import { styled } from "styled-components";
 
+const commonButton = styled.button`
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  margin: 20px;
+  color: #fff;
+  border: none;
+`;
+
+export const PrimaryButton = styled(commonButton)`
+  background: skyblue;
+`;
+
+export const Button1 = styled(commonButton)`
+  background: #ff6700;
+`;
+
+export const DangerButton = styled(commonButton)`
+  background: #f20;
+`;
+
 export const HomeWrapper = styled.div`
   border: 3px dashed;
   .top {
