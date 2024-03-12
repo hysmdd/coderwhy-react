@@ -1,0 +1,30 @@
+.pages {
+    display: flex;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+.header {
+    text-align: center;
+}
+
+.pages > div {
+    flex: 1;
+    border: 1px solid #e3e3e3;
+    text-align: center;
+}
+
+button {
+    border: none;
+    background-color: #ff6700;
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
