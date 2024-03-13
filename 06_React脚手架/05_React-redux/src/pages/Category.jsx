@@ -18,17 +18,19 @@ export class Category extends PureComponent {
     // });
   }
   render() {
+    const { counter } = this.props;
     return (
       <div>
-        <h2>Category Page</h2>
+        <h2>Category Page: {counter}</h2>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  banners: state.banners,
-  recommends: state.recommends,
+  counter: state.counter,
+  //   banners: state.banners,
+  //   recommends: state.recommends,
 });
 
 const mapDispatchToProps = (dispatch) => ({
