@@ -3,7 +3,7 @@
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 30px;
 }
 
 .header {
@@ -20,11 +20,67 @@ button {
     border: none;
     background-color: #ff6700;
     color: #fff;
-    width: 100px;
-    height: 40px;
+    width: 80px;
+    height: 30px;
     font-size: 18px;
     font-weight: bold;
-    margin: 10px;
+    margin: 5px;
     border-radius: 6px;
     cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+li {
+    text-align: left;
+    font-weight: bold;
+    line-height: 2em;
+
+    &::before {
+        content: '❤';
+        color: #f21;
+        margin-right: 30px;
+    }
+
+    &:hover {
+        color: #ff6700;
+        background: #e3e3e3;
+    }
+}
+
+.banners {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .banner {
+        width: 90%;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 10px 0;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.recommends {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    .recommend {
+        width: 20%;
+
+        img {
+            width: 100%;
+        }
+    }
 }

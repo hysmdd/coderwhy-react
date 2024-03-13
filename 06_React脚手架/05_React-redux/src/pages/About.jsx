@@ -13,7 +13,7 @@ export class About extends PureComponent {
     }
   }
   render() {
-    const { counter } = this.props;
+    const { counter, banners, recommends } = this.props;
     return (
       <div>
         <h2>About Page: {counter}</h2>
@@ -22,6 +22,22 @@ export class About extends PureComponent {
           <button onClick={(e) => this.calcNumber(9, true)}>+9</button>
           <button onClick={(e) => this.calcNumber(3, false)}>-3</button>
           <button onClick={(e) => this.calcNumber(9, false)}>-9</button>
+        </div>
+        <div className="banner">
+          <h2>轮播图数据</h2>
+          <ul>
+            {banners.map((banner, index) => {
+              return <li key={index}>{banner.title}</li>;
+            })}
+          </ul>
+        </div>
+        <div className="recommend">
+          <h2>推荐数据</h2>
+          <ul>
+            {recommends.map((item, index) => {
+              return <li key={index}>{item.title}</li>;
+            })}
+          </ul>
         </div>
       </div>
     );
@@ -36,6 +52,8 @@ export class About extends PureComponent {
 // }
 const mapStateToProps = (state) => ({
   counter: state.counter,
+  banners: state.banners,
+  recommends: state.recommends,
 });
 // const mapDispatchToProps = (dispatch) => {
 //   return {

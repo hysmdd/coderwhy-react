@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import store from "../store";
 import { subNumberAction } from "../store/actionCreators";
+import { connect } from "react-redux";
 
 export class Profile extends PureComponent {
   constructor() {
@@ -23,6 +24,7 @@ export class Profile extends PureComponent {
   }
   render() {
     const { counter } = this.state;
+    const { banners } = this.props;
     return (
       <div>
         <h2>Profile counter: {counter}</h2>
@@ -31,10 +33,24 @@ export class Profile extends PureComponent {
           <button onClick={(e) => this.subNum(2)}>-2</button>
           <button onClick={(e) => this.subNum(3)}>-3</button>
           <button onClick={(e) => this.subNum(9)}>-9</button>
+          <h2>轮播图图片</h2>
+          <div className="banners">
+            {banners.map((item, index) => {
+              return (
+                <div key={item.title} className="banner">
+                  <img alt={item.title} src={item.image} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default Profile;
+const mapStateToProps = (state) => ({
+  banners: state.banners,
+});
+
+export default connect(mapStateToProps)(Profile);
