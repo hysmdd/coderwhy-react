@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import store from "../store";
-import { subNumberAction } from "../store/counter";
+import { subNumberAction } from "../store/actionCreators";
 import { connect } from "react-redux";
 
 export class Profile extends PureComponent {
@@ -8,14 +8,14 @@ export class Profile extends PureComponent {
     super();
 
     this.state = {
-      counter: store.getState().counter.counter,
+      counter: store.getState().counter,
     };
   }
   componentDidMount() {
     store.subscribe(() => {
       const state = store.getState();
       this.setState({
-        counter: state.counter.counter,
+        counter: state.counter,
       });
     });
   }
@@ -27,7 +27,7 @@ export class Profile extends PureComponent {
     const { banners } = this.props;
     return (
       <div>
-        <h2>Profile counter: {counter} </h2>
+        <h2>Profile counter: {counter}</h2>
         <div>
           <button onClick={(e) => this.subNum(1)}>-1</button>
           <button onClick={(e) => this.subNum(2)}>-2</button>
@@ -50,7 +50,7 @@ export class Profile extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  banners: state.category.banners,
+  banners: state.banners,
 });
 
 export default connect(mapStateToProps)(Profile);

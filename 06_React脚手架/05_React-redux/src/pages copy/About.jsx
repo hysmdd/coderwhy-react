@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { addNumberAction, subNumberAction } from "../store/counter";
+import { addNumberAction, subNumberAction } from "../store/actionCreators";
 
 export class About extends PureComponent {
   calcNumber(num, isAdd) {
@@ -51,22 +51,22 @@ export class About extends PureComponent {
 //   };
 // }
 const mapStateToProps = (state) => ({
-  counter: state.counter.counter,
-  banners: state.category.banners,
-  recommends: state.category.recommends,
+  counter: state.counter,
+  banners: state.banners,
+  recommends: state.recommends,
 });
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addNumber(num) {
-      dispatch(addNumberAction(num));
-    },
-    subNumber(num) {
-      dispatch(subNumberAction(num));
-    },
-  };
-};
-// const mapDispatchToProps = (dispatch) => ({
-//   addNumber: (num) => dispatch(addNumberAction(num)),
-//   subNumber: (num) => dispatch(subNumberAction(num)),
-// });
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addNumber(num) {
+//       dispatch(addNumberAction(num));
+//     },
+//     subNumber(num) {
+//       dispatch(subNumberAction(num));
+//     },
+//   };
+// };
+const mapDispatchToProps = (dispatch) => ({
+  addNumber: (num) => dispatch(addNumberAction(num)),
+  subNumber: (num) => dispatch(subNumberAction(num)),
+});
 export default connect(mapStateToProps, mapDispatchToProps)(About);

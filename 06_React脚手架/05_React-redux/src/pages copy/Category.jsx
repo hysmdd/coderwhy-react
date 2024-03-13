@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 // import axios from "axios";
 import { connect } from "react-redux";
-import { fetchHomeMultiDataAction } from "../store/category";
+import { fetchHomeMultiDataAction } from "../store/actionCreators";
 // import {
 //   changeBannersAction,
 //   changeRecommendsAction,
@@ -28,7 +28,7 @@ export class Category extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  counter: state.counter.counter,
+  counter: state.counter,
   //   banners: state.banners,
   //   recommends: state.recommends,
 });
