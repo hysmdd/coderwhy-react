@@ -1,7 +1,6 @@
 .pages {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .pages > div {
@@ -25,4 +24,36 @@ button {
     letter-spacing: 4px;
     font-weight: bold;
     margin: 10px;
+}
+
+.banners {
+    /* width: 80%; */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .banner {
+        border-radius: 10px;
+        overflow: hidden;
+        width: 45%;
+        margin: 10px 0;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.recommends {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+
+    .recommend {
+        width: 16%;
+
+        img {
+            width: 100%;
+        }
+    }
 }
