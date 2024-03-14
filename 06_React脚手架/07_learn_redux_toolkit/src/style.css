@@ -1,0 +1,28 @@
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pages > div {
+    flex: 1;
+    text-align: center;
+    border: 2px dashed #e3e3e3;
+}
+
+.title {
+    text-align: center;
+}
+
+button {
+    background-color: #ff6700;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin: 10px;
+}
