@@ -35,7 +35,7 @@ export class App extends PureComponent {
         <TransitionGroup component="ul">
           {actors.map((item, index) => {
             return (
-              <CSSTransition key={item.id} classNames="dex" timeout={2000}>
+              <CSSTransition key={item.id} classNames="dex" timeout={1000}>
                 <li key={item.id}>
                   <span>
                     {item.name} - {item.actor} - {item.score}
