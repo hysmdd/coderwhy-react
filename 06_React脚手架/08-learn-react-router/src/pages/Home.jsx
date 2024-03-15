@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { withRouter } from "../hoc";
 
 export class Home extends PureComponent {
