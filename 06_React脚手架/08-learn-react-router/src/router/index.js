@@ -1,6 +1,6 @@
 import Home from "../pages/Home";
-import About from "../pages/About";
-import Login from "../pages/Login";
+// import About from "../pages/About";
+// import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import HomeRecommend from "../pages/HomeRecommend";
 import HomeRanking from "../pages/HomeRanking";
@@ -10,6 +10,10 @@ import HomePlayList from "../pages/HomePlayList";
 import Detail from "../pages/Detail";
 import User from "../pages/User";
 import { Navigate } from "react-router-dom";
+import React from "react";
+
+const About = React.lazy(() => import("../pages/About"));
+const Login = React.lazy(() => import("../pages/Login"));
 
 const routes = [
   {
