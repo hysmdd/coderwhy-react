@@ -1,16 +1,16 @@
 import React, { memo, useEffect, useState } from "react";
 
 const App = memo(() => {
-  const [counter, setCounter] = useState(339);
-
+  const [count, setCount] = useState(339);
   useEffect(() => {
-    document.title = counter;
+    console.log("监听redux中的数据变化，监听eventBus中的dex事件");
+    return () => {
+      console.log("取消监听redux中的数据变化，取消监听eventBus中的dex事件");
+    };
   });
-
   return (
     <div>
-      <h2>Counter: {counter}</h2>
-      <button onClick={(e) => setCounter(counter + 1)}>+1</button>
+      <button onClick={(e) => setCount(count + 1)}>{count}(+1)</button>
     </div>
   );
 });
